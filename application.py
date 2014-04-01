@@ -10,11 +10,12 @@ application = Flask(__name__)
 @application.route("/")
 @application.route("/dash")
 def dash():
-	return render_template('index.html', user={ 'nickname': 'Chex' } )
+    user = { 'nickname': 'Chex' }
+	return render_template('index.html', user = user )
 
 @application.route("/history")
 def history():
-    limit = request.args['name']
+    limit = request.args.get('name')
 
 	return render_template('history.html', uname = limit )
 
