@@ -11,13 +11,13 @@ application = Flask(__name__)
 @application.route("/dash")
 def dash():
     user = { 'nickname': 'Chex' }
-	return render_template('index.html', user = user )
+    return render_template('index.html', user = user )
 
 @application.route("/history")
 def history():
     limit = request.args.get('name')
 
-	return render_template('history.html', uname = limit )
+    return render_template('history.html', uname = limit )
 
 if __name__ == '__main__':
 	application.debug = True
