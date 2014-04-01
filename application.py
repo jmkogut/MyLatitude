@@ -24,4 +24,4 @@ def history( arg=None ):
 # Exec only if file called directly
 if __name__ == '__main__':
 	application.debug = True
-	application.run( host='0.0.0.0' )
+	application.run( host='abzde.com' )
