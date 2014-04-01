@@ -6,10 +6,11 @@ from sqlalchemy import Table, Column, Integer, String, Date, Float, DateTime
 # app.config.SQLALCHEMY_DATABASE_URI = config.DB_URI
 
 class Update( db.Model ):
-    COLUMNS = [ 'username', 'password',
-                'latitude', 'longitude', 'accuracy',
+
+    COLUMNS = [ 'username',      'password',
+                'latitude',      'longitude',     'accuracy',
                 'loc_timestamp', 'req_timestamp',
-                'offset', 'device' ]
+                'offset',        'device' ]
 
     id = db.Column('id', Integer, primary_key=True)
 
