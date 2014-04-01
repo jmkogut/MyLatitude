@@ -13,8 +13,8 @@ def dash():
 	return render_template('index.html', user={ 'nickname': 'Chex' } )
 
 @application.route("/history")
-def page2():
-	return render_template('page2.html')
+def history():
+	return render_template('history.html')
 
 if __name__ == '__main__':
 	application.debug = True
