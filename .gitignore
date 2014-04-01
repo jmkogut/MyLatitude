@@ -28,3 +28,4 @@ pip-log.txt
 .elasticbeanstalk/
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*.un~
