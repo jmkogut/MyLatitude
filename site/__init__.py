@@ -1,8 +1,8 @@
-import config
+
 from app import App
 
 # init app
-application = Application( cfg )
+application = App( 'config' )
 
 # load views && models
 from site import views, models

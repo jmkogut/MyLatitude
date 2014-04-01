@@ -1,24 +1,41 @@
 from flask import *
+from util import Exit, DoWith
 
-class App( cfg=None ):
-    def __init__( self ):
-        self.chk_config( conf )
+class App( ):
+    def __init__( s ):
+        print "App.init"
 
-        global application
-        application = Flask( conf.APP_NAME )
-        application.config.from_object( 'conf' )
-        self._app = application
+        s.cfg = __import__('config')
+        s.opt = lambda i: getattr(s.cfg, i)
 
-    def run( self, host=None, debug=None ):
-        global application
-        application = self._app
-        application.run( **{
-            'host':  host  if host else config.HOST_NAME,
-            'debug': debug if debug else config.DEBUG
-        } )
+        # DEBUG PRINTS
+        fmt = lambda k: '%s - %s' % (k, s.opt(k))
+        # debug pprits
+        print fmt('HOST_NAME')
+        print fmt('APP_NAME' )
 
-    def chk_config( self, conf ):
-        if not conf:
-            import sys
-            print "Exiting, no config."
-            sys.exit(0)
+        s.application = Flask( s.opt('APP_NAME') )
+        s.application.config.from_object( s.cfg )
+
+    def run( s, **wwwArgs ):
+        ''' Usage: App().run( host='0.0.0.0', debug=True ) '''
+        with ['HOST_NAME', 'DEBUG'] as opts:
+            Get = DoWith( s.opt )
+            args = dict( zip( opts, Get(opts) ) )
+
+            print "pretty ARGS - %s" % ( args )
+            args.update( wwwArgs )
+
+            print "pretty wwwARGS - %s" % ( args )
+
+        s.application.run( **args )
+
+
+if __name__ == '__main__':
+    print "running app.py"
+
+    app = App()
+
+    print 'HOSTNAME is DBG::%s' % ( app.opt('HOST_NAME') )
+
+    app.run()
