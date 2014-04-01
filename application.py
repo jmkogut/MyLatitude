@@ -7,6 +7,7 @@ from flask import *
 application = Flask(__name__)
 
 # Setup the root route of the website, and render the 'index.html' template
+@application.route("/")
 @application.route("/dash")
 def dash():
     user = { 'nickname': 'Chex' }
