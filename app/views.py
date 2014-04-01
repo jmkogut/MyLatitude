@@ -1,4 +1,4 @@
-from site import application
+from app import *
 
 # Setup the root route of the website, and render the 'index.html' template
 @application.route("/")

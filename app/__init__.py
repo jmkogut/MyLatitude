@@ -1,13 +1,18 @@
 
 from flask import *
+from flask.ext.sqlalchemy import SQLAlchemy
+
+# =-=-=-=- OS PATH MODS =-=-=-
 import os, sys
 
 config = __import__('config')
+print "Initialising [ %s ]" % ( config.APP_NAME, )
 
 # =-=-=- app init
 global application
 application = Flask( config.APP_NAME )
 application.config.from_object( 'config' )
+application.debug = config.DEBUG
 
 # database init
 db = SQLAlchemy( application )
@@ -19,4 +24,3 @@ from app import views, models
 def not_found(error):
     return render_template('404.html'), 404
 
-application.debug = conf.DEBUG
