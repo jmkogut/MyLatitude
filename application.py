@@ -12,7 +12,7 @@ application = Flask(__name__)
 def dash():
 	return render_template('index.html', user={ 'nickname': 'Chex' } )
 
-@application.route("/page2")
+@application.route("/history")
 def page2():
 	return render_template('page2.html')
 
