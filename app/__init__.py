@@ -1,13 +1,22 @@
 
-from app import App
+from flask import *
+import os, sys
 
-# init app
-application = App( 'config' )
+config = __import__('config')
 
-# load views && models
-from site import views, models
-
-# set debug option
-application.debug = conf.DEBUG
+# =-=-=- app init
 global application
+application = Flask( config.APP_NAME )
+application.config.from_object( 'config' )
 
+# database init
+db = SQLAlchemy( application )
+
+# Site init, load views & models.
+from app import views, models
+
+@application.errorhandler(404)
+def not_found(error):
+    return render_template('404.html'), 404
+
+application.debug = conf.DEBUG
