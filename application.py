@@ -14,7 +14,9 @@ def dash():
 
 @application.route("/history")
 def history():
-	return render_template('history.html')
+    limit = request.args['name']
+
+	return render_template('history.html', uname = limit )
 
 if __name__ == '__main__':
 	application.debug = True
