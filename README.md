@@ -1,28 +1,17 @@
-elastic-flask-baseline
-======================
+MyLatitude
+==========
 
-A baseline Flask application suitable for use on Amazon Elastic Beanstalk.
+A python/flask application that you can host to replace the functionality of Google's now defunct latitude service.
 
-The code here is kept as minimal as possible, while still demonstrating the critical points/differences that running on Elastic Beanstalk requires.
+You can update it from [Backitude][] on Android using a POST to [MyLatitude Update][1]. Configuration instructions for Backitude [can be found here][tude.conf], make sure to test them. Support for iOS currently not researched.
 
-Things you will need:
+This will allow you to view your mobile device's location at [MyLatitude Dashboard][2].
 
-- Flask: http://flask.pocoo.org
-- AWS 'eb' tool: http://aws.amazon.com/code/6752709412171743
-- Your AWS API keys: https://console.aws.amazon.com/iam/home?#security_credential
-- Git: http://git-scm.com
-
-Quickstart
------------
-
-1. Install the 'eb' tool.
-2. Git clone this repository.
-3. Run 'eb init' in the repository, and answer the questions, providing your API Key, etc.
-4. Run 'eb start' in the repository, and wait for it to complete.
-5. Run 'git aws.push' in the repository.
-6. Run 'eb status' in the repository, and wait for it to return 'Green' status.
-7. Browse to the URL reported by 'eb status', and be amazed at your autoscaling, crazy, cloud-based application!
-
-For More Detailed Instructions
-------------------------------
-For more detailed information, and a step by step walkthrough of each command, etc., check out my [blog post](http://blog.uptill3.com/2012/08/31/flask-elastic-beanstalk-baseline.html)!.
+[Backitude]:  https://play.google.com/store/apps/details?id=gaugler.backitude 
+                "Backitude for Android"
+[tude.conf]:  backitude_config.md
+                "Configuring your mobile device."
+[1]: http://lat.mydomain.tld/update
+                "MyLatitude update URI"
+[2]:    http://lat.mydomain.tld/
+                "View MyLatitude web"

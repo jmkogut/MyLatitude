@@ -26,3 +26,5 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 .elasticbeanstalk/
+# Byte-compiled / optimized / DLL files
+__pycache__/
