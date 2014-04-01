@@ -1,12 +1,30 @@
 #!/usr/bin/env python
 
-from app.util import *
+# -----------
+# Load globals for the interactive session
+import config
+import os, sys
+print "cwd is %s"%(os.getcwd(), )
 
-import os
-import readline
-from pprint import pprint
-
-from flask import *
 from app import *
 
 os.environ['PYTHONINSPECT'] = 'True'
+
+#
+# -----------
+
+# -----------
+# Launch ipython shell
+def Session ():
+    from IPythonimport import embed
+    embed("IT FEELS LIKE THE FIRST TIME~")
+
+#from IPython.terminal.ipapp import TerminalIPythonApp
+#app = TerminalIPythonApp.instance()
+#app.initialise( argv=[] )
+#app.start()
+#
+# ------------
+
+if __name__ is '__main__':
+    Session()
