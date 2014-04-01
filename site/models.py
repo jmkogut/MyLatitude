@@ -8,6 +8,16 @@ app.config['SQLALCHEMY_DATABASE_URI'] =  config.DB_URI
 db = SQLAlchemy(app)
 
 class Update(db.Model):
+    COLUMNS = [ 'username',
+                'password',
+                'latitude',
+                'longitude',
+                'accuracy',
+                'loc_timestamp',
+                'req_timestamp',
+                'offset',
+                'device' ]
+
     id = db.Column('id', Integer, primary_key=True)
 
     username = db.Column('username', String(30) )
@@ -20,7 +30,6 @@ class Update(db.Model):
     device = db.Column('device', String(30) )
 
     def __init__(self, datas ):
-
 
     def __repr__(self):
         return '<Update %s %% %s>' % (self.username, self.id)
