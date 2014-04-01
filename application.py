@@ -14,10 +14,10 @@ def dash():
     return render_template('index.html', user = user )
 
 @application.route("/history")
-def history():
-    limit = request.args.get('user')
+def history( arg=None ):
+    limit = arg.user if arg else request.args.get( 'user' )
 
-    return render_template('history.html', query = limit )
+    return render_template('history.html', user = limit )
 
 if __name__ == '__main__':
 	application.debug = True
