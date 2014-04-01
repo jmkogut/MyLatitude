@@ -22,6 +22,7 @@ def IPy_Shell ():
 def BPy_Shell ():
     import bpython
     bpython.embed( locals=globals(), )
+    import readline
 
 #from IPython.terminal.ipapp import TerminalIPythonApp
 #app = TerminalIPythonApp.instance()
