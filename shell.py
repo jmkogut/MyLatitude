@@ -15,9 +15,13 @@ os.environ['PYTHONINSPECT'] = 'True'
 
 # -----------
 # Launch ipython shell
-def Session ():
+def IPy_Shell ():
     from IPythonimport import embed
     embed("IT FEELS LIKE THE FIRST TIME~")
+
+def BPy_Shell ():
+    import bpython
+    bpython.embed( locals=globals(), )
 
 #from IPython.terminal.ipapp import TerminalIPythonApp
 #app = TerminalIPythonApp.instance()
