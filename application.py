@@ -10,7 +10,7 @@ application = Flask(__name__)
 @application.route("/")
 def default():
 	#display welcome page
-	return render_template('index.html')
+        return render_template('index.html', user=user = { 'nickname': 'Chex' } )
 
 @application.route("/page2")
 def page2():
