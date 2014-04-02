@@ -2,9 +2,6 @@ from app import application, db, config
 from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy import Table, Column, Integer, String, Date, Float, DateTime
 
-# Now done in config.py
-# app.config.SQLALCHEMY_DATABASE_URI = config.DB_URI
-
 class Update( db.Model ):
 
     COLUMNS = [ 'username',      'password',

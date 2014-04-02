@@ -1,8 +1,7 @@
-from app import *
+from app import application
 
 # Setup the root route of the website, and render the 'index.html' template
 @application.route("/")
-@application.route("/dash")
 def dash():
     user = { 'nickname': 'Chex' }
     return render_template('index.html', user = user )
@@ -20,4 +19,9 @@ def update():
 @application.route("/history/<user>")
 def history( user ):
     limit_to = user if user else request.args.get( 'user' )
-    return render_template('history.html', user = limit_to )
+    return render_template('history.html', user=limit_to )
+
+@application.route("/map/<user>")
+def map( user ):
+    limit_to = user if user else request.args.get( 'user' )
+    return render_template('map.html', user=limit_to )
