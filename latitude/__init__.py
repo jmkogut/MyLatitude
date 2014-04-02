@@ -1,19 +1,26 @@
-from flask import *
+from flask import Flask
+from flask.ext.sqlalchemy import SQLAlchemy
 
-# =-=-=-
-# App init
-global application
-application = Flask( __name__ )
-application.config.from_pyfile('config.py')
-application.debug =  application.config.get('DEBUG')
+from latitude.util import log, SysPath, MainMethod
+SysPath().append(above=__file__)
 
-# =-=-=-
-# Init DB
-db = SQLAlchemy()
-db.app = application
-db.init_app( application )
+def app_init(cfg='../config.py'):
+    ''' Initialises the flask app. '''
+    log("POLLING SYSPATH")
+    SysPath().status()
 
-from models import Update
+    app        = Flask( __name__ )
+    app.config.from_pyfile(cfg)
+    app.debug  =  app.config.get('DEBUG')
+    return app
 
-# Site init, load views & models.
-import views, handlers
+#if not PATH_FIXED:
+#    log("Path should be fixed now why is it broken.")
+
+application = app_init()
+db = SQLAlchemy( application )
+
+
+from models   import Update
+from views    import *
+from handlers import *

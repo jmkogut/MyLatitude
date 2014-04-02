@@ -1,23 +1,16 @@
-#!/usr/bin/env python
+#!/usr/bin/env bpython
 
-# -----------
-# Load globals for the interactive session
-import os
-print "$CWD == %s" % ( os.getcwd() )
+from latitude import application as app, MainMethod, db
+from latitude import models
+from latitude.util import abort
 
-os.environ['PYTHONINSPECT'] = 'True'
+__import__('os').environ['PYTHONINSPECT'] = 'True'
 
-from app import *
-#
-# -----------
-
-# -----------
-# Launch shell
+@MainMethod(__name__)
 def BPy_Shell ():
-    import bpython
-    bpython.embed( locals=globals(), )
-    import readline
-
-
-if __name__ is '__main__':
-    BPy_Shell()
+    try:
+        import readline
+        import bpython
+        bpython.embed( locals_={ 'app': app, 'db': db, 'models': models }, )
+    except Exception, e:
+        abort( msg="Encountered an exception while loading the bpython shell.")

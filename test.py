@@ -1,15 +1,8 @@
 #!/usr/bin/env bpython
 
-# = = = = = = = = = = = = = = = = =
-# Exec only if file called directly
-if __name__ == '__main__':
-    import os, sys
-    sys.path.insert(0, os.path.abspath('.') )
+from latitude import application as app, MainMethod
 
-    # =-=-=-=-=-=-=-
-    # Run the testing wwwsrv
-    from app import  *
-
-    application.run(
-        host  = application.config.get('HOST_NAME'),
-        debug = application.config.get('DEBUG') )
+@MainMethod(__name__)
+def test():
+    app.run(host=app.config.get('HOST_NAME'),
+           debug=app.config.get('DEBUG'))
