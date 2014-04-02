@@ -1,12 +1,11 @@
 # database settings
 DB_USER="joshua"
-DB_PASS="lolhax##"
-DB_URI="mysql://db.lat.chex.io:3306"
-SQLALCHEMY_DATABASE_URI=DB_URI
+DB_PASS=""
+DB_URI="sqlite:///:memory:" #mysql://db.lat.chex.io:3306
 
 # general options
-APP_NAME ="myLatitude"
-HOST_NAME="localhost"
+APP_NAME ="MyLatitude"
+HOST_NAME="live.chex.io"
 
 # enable debugging
 DEBUG=True

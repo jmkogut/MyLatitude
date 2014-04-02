@@ -13,3 +13,6 @@ if __name__ == '__main__':
 
     from app import *
 
+    application.run(
+        host=application.config.HOST_NAME,
+        debug=application.config.DEBUG )
