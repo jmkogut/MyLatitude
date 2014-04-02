@@ -1,16 +1,19 @@
-
 from flask import *
-from flask.ext.sqlalchemy import SQLAlchemy
 
-# =-=-=- app init
+# =-=-=-
+# App init
 global application
-application = Flask( "WWW" )
-application.config.from_pyfile('config.py') #from_object( 'config' )
+application = Flask( __name__ )
+application.config.from_pyfile('config.py')
 application.debug =  application.config.get('DEBUG')
 
-# database init
-db = SQLAlchemy( application )
+# =-=-=-
+# Init DB
+db = SQLAlchemy()
+db.app = application
+db.init_app( application )
+
+from models import Update
 
 # Site init, load views & models.
-from app import views, models
-from app.handlers import *
+import views, handlers

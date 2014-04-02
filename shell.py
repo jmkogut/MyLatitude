@@ -2,14 +2,14 @@
 
 # -----------
 # Load globals for the interactive session
-print "cwd is %s"%( __import__('os').getcwd(), )
-
-from app import *
+import os
+print "$CWD == %s" % ( os.getcwd() )
 
 os.environ['PYTHONINSPECT'] = 'True'
+
+from app import *
 #
 # -----------
-
 
 # -----------
 # Launch shell
@@ -18,7 +18,6 @@ def BPy_Shell ():
     bpython.embed( locals=globals(), )
     import readline
 
+
 if __name__ is '__main__':
     BPy_Shell()
-#
-# ------------

@@ -1,18 +1,15 @@
-#!/usr/bin/env python
+#!/usr/bin/env bpython
 
 # = = = = = = = = = = = = = = = = =
 # Exec only if file called directly
 if __name__ == '__main__':
     import os, sys
-    sys.path.insert(0, os.path.abspath('./') )
-
-    print "APP_NAME is %s" % ( __import__('config').APP_NAME, )
+    sys.path.insert(0, os.path.abspath('.') )
 
     # =-=-=-=-=-=-=-
     # Run the testing wwwsrv
-
-    from app import *
+    from app import  *
 
     application.run(
-        host=application.config.HOST_NAME,
-        debug=application.config.DEBUG )
+        host  = application.config.get('HOST_NAME'),
+        debug = application.config.get('DEBUG') )

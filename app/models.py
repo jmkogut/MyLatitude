@@ -1,7 +1,14 @@
-from app import application, db, config
+from app import application, db
+
 from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy import Table, Column, Integer, String, Date, Float, DateTime
 
+# =-=-=-=-=-
+# DB Init
+# db = SQLAlchemy()
+
+# =-=-=-=-=-=-
+# Model defs
 class Update( db.Model ):
 
     COLUMNS = [ 'username',      'password',
