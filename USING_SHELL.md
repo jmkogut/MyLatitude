@@ -20,4 +20,4 @@ Be sure to offer suggestions.
  - `get_static_html()` - *Really convenient when you're tweaking the CSS files*
 
 [test]: TESTING.md "TODO: write testing docs"
-[help}: #methods "Help methods"
+[help]: #methods "Help methods"
