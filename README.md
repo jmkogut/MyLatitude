@@ -4,6 +4,8 @@ This is an entirely open-source clone of Google's Latitude functionality
 that you can self-host. Don't know what any of that means? You may be in
 the wrong place.
 
+![scr](http://i.imgur.com/sQVDHCa.png)
+
 Install
 -------
 In the app root, launch the shell and execute [`install()`](SHELL.md#install).
