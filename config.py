@@ -17,3 +17,4 @@ DEBUG     = True
 
 # Project root dir
 BASE_PATH = os.getcwd()
+STATIC_FOLDER = BASE_PATH + '/static'

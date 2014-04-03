@@ -13,9 +13,9 @@ def update():
 
     | - SAMPLE
     | ImmutableMultiDict([('username', u'joshua'), ('dottru@gmail.com',
-    | u'dottru@gmail.com'), ('s2', u'device'), ('loc_timestamp', u'25200'), 
+    | u'dottru@gmail.com'), ('s2', u'device'), ('loc_timestamp', u'25200'),
     | ('longitude', u'-122.23457336425781'), ('offset', u'-07:00'), ('latitude',
-    | u'38.08940505981445'), ('password', u'lolhax'), ('req_timestamp', u'1396511928'), 
+    | u'38.08940505981445'), ('password', u'lolhax'), ('req_timestamp', u'1396511928'),
     | ('accuracy', u'0.0')])
     '''
     print '/update POST dump :: %s' % request.form
@@ -27,8 +27,9 @@ def history( user ):
     limit_to = user if user else request.args.get( 'user' )
     return render_template( 'history.html', user = limit_to )
 
-@app.route("/map/<user>")
-def map( user ):
-    ''' A live map view for any specific person. '''
-    limit_to = user if user else request.args.get( 'user' )
-    return render_template( 'map.html', user = limit_to )
+''' DEBUG ONLY MAP TEST ROUTE '''
+if app.config.get('DEBUG'):
+    @app.route("/map/test")
+    def map():
+        ''' A view to test map rendering. '''
+        return render_template( 'simple_map.html' )

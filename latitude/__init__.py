@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 
@@ -9,7 +11,10 @@ def app_init(cfg='../config.py'):
     log("POLLING SYSPATH")
     SysPath().status()
 
-    app        = Flask( __name__ )
+    s_dir = os.path.abspath('static')
+    log("static dir: "+s_dir)
+
+    app        = Flask( __name__, static_folder=s_dir)
     app.config.from_pyfile(cfg)
     app.debug  =  app.config.get('DEBUG')
     return app
