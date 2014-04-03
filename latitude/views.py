@@ -9,7 +9,15 @@ def splash():
 
 @app.route("/update", methods=['POST'] )
 def update():
-    ''' The uri users will update their locs to. '''
+    ''' The uri users will update their locs to.
+
+    | - SAMPLE
+    | ImmutableMultiDict([('username', u'joshua'), ('dottru@gmail.com',
+    | u'dottru@gmail.com'), ('s2', u'device'), ('loc_timestamp', u'25200'), 
+    | ('longitude', u'-122.23457336425781'), ('offset', u'-07:00'), ('latitude',
+    | u'38.08940505981445'), ('password', u'lolhax'), ('req_timestamp', u'1396511928'), 
+    | ('accuracy', u'0.0')])
+    '''
     print '/update POST dump :: %s' % request.form
     return render_template( 'updated.html', dump = request.form)
 
