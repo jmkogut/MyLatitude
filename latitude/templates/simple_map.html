@@ -1,17 +1,12 @@
 {% extends "base.html" %}
 
-
 {% block head %}
-
     <link href="{{ url_for('static', filename="ol/ol.css") }}"
         rel="stylesheet">
-    <script type="text/javascript"
-        src="{{ url_for('static', filename="ol/ol.js") }}"></script>
 
-    <!-- map.js has a loaded method that populates in any id=='map' -->
     <script type="text/javascript"
-        src="{{ url_for('static', filename="map.js") }}"></script>
-
+        data-main="{{ url_for('static', filename="js/map.js") }}"
+        src="{{ url_for('static', filename="js/require.js") }}"></script>
 {% endblock %}
 
 {% block content %}
