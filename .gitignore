@@ -1,4 +1,5 @@
 *.py[co]
+static/openlayer*
 *.pyc
 # Packages
 *.egg
