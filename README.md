@@ -1,17 +1,32 @@
 MyLatitude
-==========
+----------
+This is an entirely open-source clone of Google's Latitude functionality
+that you can self-host. Don't know what any of that means? You may be in
+the wrong place.
 
-A python/flask application that you can host to replace the functionality of Google's now defunct latitude service.
+Install
+-------
+In the app root, launch the shell and execute [`install()`](SHELL.md#install).
+It will notify you when the procedure has completed.
 
-You can update it from [Backitude][] on Android using a POST to [MyLatitude Update][1]. Configuration instructions for Backitude [can be found here][tude.conf], make sure to test them. Support for iOS currently not researched.
+Server
+------
+You can [update][1] your location on this site with your android phone quite easily. Just install [Backitude][] on your phone and [configure](#config) it to POST to this application.
 
-This will allow you to view your mobile device's location at [MyLatitude Dashboard][2].
+> (Note: will not work begind NAT.)
+
+This will allow you to view your mobile device's location at your [dashboard][2].
+
+Config
+------
+
+> TODO: write an easy how-to config
 
 [Backitude]:  https://play.google.com/store/apps/details?id=gaugler.backitude 
                 "Backitude for Android"
 [tude.conf]:  backitude_config.md
                 "Configuring your mobile device."
-[1]: http://lat.mydomain.tld/update
+[1]:   http://lat.mydomain.tld/update
                 "MyLatitude update URI"
 [2]:    http://lat.mydomain.tld/
                 "View MyLatitude web"
