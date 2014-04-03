@@ -1,23 +1,35 @@
-The Interactive Shell
-=====================
+Shell
+-----
+MyLatitude comes with an interactive environment somewhat similar to Django's shell.
 
-In the application root, run `python shell.py` or if it's executable
-`./shell.py` does just as well.
 
-This drops you in a BPython environment that has the Flask `application`
-object loaded, the SQLAlchemy `db` object, and loads of friendly [helper
-methods][helpers] to [test][] the functioning status of your install.
+Using
+-----
+In the app root, run `python shell.py` or if you `chmod +x ./shell.py` then you can
+just run it directly. Check that you're in your [virtualenv](README.md#packaging) first.
 
-Helper Methods
-==============
+This drops you in a BPython ([why](#why-bpython)) REPL[?](# "Read, Eval, Print, Loop") that
+has a few _real_ handy objects available. Flask `app`, SQLAlchemy `db`, and loads of friendly
+[methods](#helpers) to help you interact with the application.
 
-Here's a quick synopsis of the helper methods I wrote for the shell,
-Be sure to offer suggestions.
 
- - `init_db()` - *dynamically creates the default in-memory SQLite store*
- - `get_js_deps()` *caches the static depencies for browser magic*
- - `install()` - *Runs the various actions needed before the app can run*
- - `get_static_html()` - *Really convenient when you're tweaking the CSS files*
+Helpers
+-------
+Here's a quick synopsis of the helper methods I wrote for the shell...
+
+_Be sure to offer suggestions._
+
+Name | Blurp
+--- | ---
+`init_db()`         | _Creates the default in-memory SQLite store._ <a id="init-db"></a>
+`install()`         | _Prepares the app for running._               <a id="install"></a>
+`get_js_deps()`     | _Downloads static dependencies._              <a id="get-js-deps"></a>
+`get_static_html()` | _Downloads a copy of your index page._        <a id="get-static-html"></a>
+
+
+Why BPython
+-----------
+Frankly, I like it's interface ten times more than IPython, I hope you do too.
 
 [test]:    TESTING.md       "TODO: write testing docs"
-[helpers]: .#helpers        "Convenience methods"
+[why]:     #why-bpython
