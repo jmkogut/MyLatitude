@@ -5,8 +5,11 @@ import sys
 
 
 def log(m, *ins):
-    print " -- " + m.format(*ins)
+    str = " -- " + m.format(*ins)
+    print str
+    return str
 
+log._ = lambda l: map(log, l)
 
 def abort(code=0, msg="Exiting application..."):
     ''' Forcibly quit execution. '''

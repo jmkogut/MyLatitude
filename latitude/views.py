@@ -1,14 +1,10 @@
 from flask    import request, render_template, session, redirect, url_for
-from latitude import application as app, log
-
-from authomatic.adapters import WerkzeugAdapter
-from authomatic import Authomatic
+from latitude import application as app, log, google
 
 @app.route("/")
 def splash():
     ''' Setup the index route of the website, and render index.html. '''
-    User = { 'nickname': 'Chex' }
-    return render_template('index.html', user = User )
+    return render_template('index.html', user=user )
 
 
 @app.route("/update", methods=['POST'] )
@@ -40,10 +36,10 @@ def login():
         return "Already logged in. {0}" % session['openid'],
     else:
         cb = url_for('oauth', _external=True)
-        return app.auth.authorize(callback=cb)
+        return log(google.authorize(callback=cb)
 
 @app.route(app.config.get('REDIRECT_URI')) #, methods=['GET', 'POST'])
-@app.auth.authorized_handler
+@google.authorized_handler
 def oauth(resp):
     ''' Initiates an oauth login, callback is /oauth '''
     log("OAUTH CALLBACK ARGS   {0}", request.args)
@@ -59,9 +55,10 @@ def oauth(resp):
     #if g.user:
     #    return "Already logged in. Echoing things {0}".format(g.user)
 
- @app.auth.tokengetter
+ @google.tokengetter
  def tokengetter():
-    return session.get('access_token')
+    log("access_token")
+    return log(session.get('access_token'))
 
 
 ''' TESTING VIE WS ============================

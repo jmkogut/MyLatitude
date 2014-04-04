@@ -46,8 +46,8 @@ def app_init(cfg='../config.py'):
 
     return app, google
 
-application, gauth = app_init()
-application.auth  = gauth
+application, google = app_init()
+#application.auth  = gauth
 
 engine = create_engine( application.config.get('DB_URI'), convert_unicode=True)
 session = scoped_session(sessionmaker(
