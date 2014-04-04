@@ -1,6 +1,8 @@
 require.config({
     baseUrl: '/static/js',
-    paths:{ 'ol': 'ol/ol' },
+    paths: {
+      'ol': 'ol/ol',
+    },
     shim: {
       'ol': {
         'exports': 'ol'
@@ -13,7 +15,6 @@ require(['jquery', 'ol'], function ($, ol) {
 
     // Asign a document ready handler to create and populate a map.
     $( document ).ready(function(){
-        console.log("document ready fired");
 
         div = $("#map").first();
         div.css( "width",  "100%"  );

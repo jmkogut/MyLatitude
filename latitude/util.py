@@ -4,9 +4,8 @@ import os
 import sys
 
 
-def log(msg, pre=" -- "):
-    if msg != None:
-        print "%s %s" % (pre, msg)
+def log(m, *ins):
+    print " -- " + m.format(*ins)
 
 
 def abort(code=0, msg="Exiting application..."):
@@ -17,7 +16,7 @@ def abort(code=0, msg="Exiting application..."):
 
 def printcwd():
     ''' Prints the current working directory. '''
-    log("Current dir is == %s" % (os.getcwd(),))
+    log("Current dir is == {0}", os.getcwd())
 
 
 def singleton(cls):
@@ -69,6 +68,10 @@ class SysPath(object):
         sys.path.insert(0, add)
 
         self.fixed = True
+
+
+def Install():
+    raise NotImplementedError("TODO: Write an installer helper.")
 
 
 def MainMethod(name, test='__main__'):

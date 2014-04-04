@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <script type="text/javascript"
+        data-main="{{ url_for('static', filename="js/login.js") }}"
+        src="{{ url_for('static', filename="js/require.js") }}"></script>
+{% endblock %}
+
+{% block content %}
+<h1>Login :: user={{ user }}</h1>
+
+    {% if result.error %}
+         <h2>Damn that error: {{ result.error.message }}</h2>
+    {% endif %}
+
+    {% if result.user %}
+        <h1>Hi {{ result.user.name }}</h1>
+        <h2>Your id is: {{ result.user.id }}</h2>
+        <h2>Your email is: {{ result.user.email }}</h2>
+    {% endif %}
+
+{% endblock %}

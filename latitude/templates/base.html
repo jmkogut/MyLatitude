@@ -12,10 +12,19 @@
     <link href="{{ url_for('static', filename="latitude.css") }}"
       rel="stylesheet">
 
-
-    {% block head %}<!-- NO CUSTOM HEAD RESOURCES -->{% endblock %}
+    {% block head %}{% endblock %}
   </head>
   <body>
+
+    <div id="auth">
+      <input type="button" value="login" />
+      {% if user %}
+        {{ user }}
+      {% else %}
+
+      {% endif %}
+    </div>
+
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <ul>
@@ -27,6 +36,7 @@
     <hr>
     {% endwith %}
 
-      {% block content %}{% endblock %}
+
+    {% block content %}{% endblock %}
   </body>
 </html>
